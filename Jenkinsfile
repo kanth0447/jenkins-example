@@ -9,6 +9,7 @@ pipeline {
 
             steps {
                 sh '''
+                      echo $displayName
                       echo "Hello master branch"
                    '''    
             }
