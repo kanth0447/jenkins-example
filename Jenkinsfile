@@ -9,7 +9,6 @@ pipeline {
 
             steps {
                 sh '''
-                      echo $displayName
                       echo "Hello master branch"
                    '''    
             }
@@ -35,6 +34,7 @@ pipeline {
 
             steps {
                 sh '''
+                      echo $displayName
                       echo "Hello feature-1 branch"
                    '''    
             }
