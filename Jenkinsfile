@@ -36,6 +36,9 @@ pipeline {
                 sh '''
                       echo $(displayName)
                       echo $(JOB_BASE_NAME)
+                      echo $(JOB_NAME)
+                      echo env.BRANCH_NAME
+                      echo env.displayName
                       echo "Hello feature-1 branch"
                    '''    
             }
