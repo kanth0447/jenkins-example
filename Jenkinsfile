@@ -37,7 +37,7 @@ pipeline {
                 sh "echo $JOB_BASE_NAME"
                 sh "echo $JOB_NAME"
                 sh "echo $GIT_BRANCH"
-                sh "echo $JOB_NAME_$GIT_BRANCH"
+                sh "echo ${JOB_NAME}_${GIT_BRANCH}"
             }
         }
     }
