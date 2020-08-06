@@ -33,20 +33,9 @@ pipeline {
             }
 
             steps {
-                sh '''
-                      echo $(displayName)
-                      echo $(JOB_BASE_NAME)
-                      echo $(JOB_NAME)
-                      echo env.BRANCH_NAME
-                      echo env.displayName
-                      $(JOB_NAME)
-                      $env.BRANCH_NAME
-                      env.$(BRANCH_NAME)
-                      $(env.BRANCH_NAME)
-                      $(JOB_BASE_NAME)
-                      $(displayName)
-                      echo "Hello feature-1 branch"
-                   '''    
+                sh "echo 'Hello feature-1 branch'"
+                sh "echo $JOB_BASE_NAME"
+                sh "echo $JOB_NAME"
             }
         }
     }
