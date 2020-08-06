@@ -34,7 +34,8 @@ pipeline {
 
             steps {
                 sh '''
-                      echo $displayName
+                      echo $(displayName)
+                      echo $(JOB_BASE_NAME)
                       echo "Hello feature-1 branch"
                    '''    
             }
