@@ -1,3 +1,5 @@
+def allJob = env.JOB_NAME.tokenize('/') as String[];
+def projectName = allJob[0];
 pipeline {
     agent any
   
@@ -33,11 +35,9 @@ pipeline {
             }
 
             steps {
-                sh '''
-                   echo 'Hello feature-1 branch'
-                   echo ${JOB_NAME} > job_name.txt
-                   sed -i 's/\//\_/g' job_name.txt
-                   '''
+                sh "echo 'Hello feature-1 branch'"
+                sh "echo ${projectName}"
+                sh "echo ${projectName}_${GIT_BRANCH}"
                                  
             }
         }
