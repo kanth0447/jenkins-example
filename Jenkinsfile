@@ -36,9 +36,8 @@ pipeline {
                 sh '''
                    echo 'Hello feature-1 branch'
                    echo ${JOB_NAME} > job_name.txt
-                   export JOB_NAME=$(sed -i 's/\//\_/g' job_name.txt)
-                   echo JOB_NAME
-                
+                   sed -i 's/\//\_/g' job_name.txt
+                                 
             }
         }
     }
