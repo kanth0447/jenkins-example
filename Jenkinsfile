@@ -3,40 +3,39 @@ pipeline {
 
     stages {
         stage ('Compile Stage') {
+            when {
+                branch 'master'
+            }
 
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn clean compile'
-                }
+                sh '''
+                      echo "Hello master branch"
+                   '''    
             }
         }
 
         stage ('Testing Stage') {
+             when {
+                branch 'develop'
+            }
 
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn test'
-                }
+                sh '''
+                      echo "Hello develop branch"
+                   '''    
             }
         }
 
-        stage ('Deploy?') {
-            steps {
-                input('Do you want to deploy?')
-            }
-        }
 
         stage ('Deployment Stage') {
+             when {
+                branch 'feature-aws-deploy'
+            }
+
             steps {
-
-		            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'PCF_LOGIN',
-                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-
-                    sh '/usr/local/bin/cf login -a http://api.run.pivotal.io -u $USERNAME -p $PASSWORD'
-			        sh '/usr/local/bin/cf push'
-
-			
-                }
+                sh '''
+                      echo "Hello feature-1 branch"
+                   '''    
             }
         }
     }
