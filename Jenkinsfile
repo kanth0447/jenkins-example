@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+  
     stages {
         stage ('Compile Stage') {
             when {
@@ -33,12 +33,12 @@ pipeline {
             }
 
             steps {
-                sh "echo 'Hello feature-1 branch'"
-                sh "echo $JOB_BASE_NAME"
-                sh "echo $JOB_NAME"
-                sh "echo $GIT_BRANCH"
-                sh "echo ${JOB_NAME}_${GIT_BRANCH}"
-                sh "echo ${PROJECTNAME}
+                sh '''
+                   echo 'Hello feature-1 branch'
+                   echo ${JOB_NAME} > job_name.txt
+                   export JOB_NAME=$(sed -i 's/\//\_/g' job_name.txt)
+                   echo JOB_NAME
+                
             }
         }
     }
