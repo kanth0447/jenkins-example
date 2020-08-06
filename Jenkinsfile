@@ -29,7 +29,7 @@ pipeline {
 
         stage ('Deployment Stage') {
              when {
-                branch 'feature-aws-deploy'
+                branch 'feature/cicd-pcf'
             }
 
             steps {
