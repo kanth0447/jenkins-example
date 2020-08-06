@@ -38,7 +38,9 @@ pipeline {
                 sh "echo 'Hello feature-1 branch'"
                 sh "echo ${projectName}"
                 sh "echo ${projectName}_${GIT_BRANCH}"
-                                 
+                sh '''
+                    echo ${projectName}_${GIT_BRANCH}
+                   '''
             }
         }
     }
