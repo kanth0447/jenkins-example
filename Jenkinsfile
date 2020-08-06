@@ -34,7 +34,7 @@ pipeline {
 
             steps {
                 sh '''
-                      echo "Hello feature-1 branch"
+                      echo "Hello feature/cicd-pcf branch"
                    '''    
             }
         }
