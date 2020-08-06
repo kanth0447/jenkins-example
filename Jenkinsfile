@@ -36,11 +36,8 @@ pipeline {
                 sh "echo 'Hello feature-1 branch'"
                 sh "echo $JOB_BASE_NAME"
                 sh "echo $JOB_NAME"
-                sh '''
-                   echo $JOB_NAME > test.txt
-                   sed -i 's///_/g' test.txt
-                   cat test.txt
-                   '''
+                sh "echo $GIT_BRANCH"
+                sh "echo $JOB_NAME_$GIT_BRANCH"
             }
         }
     }
